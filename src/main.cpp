@@ -17,10 +17,16 @@ void loop() {}
 
 void textoChar()
 {
-  //TODO  Laranja  = Título de cada bloco
-  //?     Azul     = Informacões extras
-  //*     Verde    = Explicacões
-  //!     Vermelho = Avisos e outros títulos
+  //TODO  Laranja  =  Título de cada bloco
+  //?     Azul     =  Informacões extras
+  //*     Verde    =  Explicacões
+  //!     Vermelho =  Avisos e outros títulos
+
+
+
+  //!===========================
+  //!===     USANDO char     ===
+  //!===========================
 
 
   //TODO Texto literal
@@ -198,4 +204,41 @@ void textoString()
   //TODO Substituindo um texto dentro da String
   mensagem.replace("Ola,", "Oi, tudo bom? ");
   Serial.println(mensagem);
+
+
+
+  //TODO Convertendo tudo para maiúsculas
+  mensagem.toUpperCase();
+  Serial.println(mensagem);
+
+
+
+  //TODO Convertendo tudo para minúsculas
+  mensagem.toLowerCase();
+  Serial.println(mensagem);
+
+
+
+  //TODO Convertendo texto numérico para inteiro
+  String textoNumero = "123";
+  int numero = textoNumero.toInt();
+  Serial.println(numero * 2);
+  //? Adicionado o *2 para provar que se tornou um numero e agora é possível fazer cálculos
+
+
+
+  //TODO Verificando se a String está vazia
+  String textoVazio = "";
+  if(textoVazio.length() == 0)
+    Serial.println("O texto esta vazio");
+
+
+
+  //TODO Convertendo String para const char*
+  //? Isso é útil quando alguma biblioteca espera texto estilo C
+  const char* textoComoChar = mensagem.c_str();
+  Serial.println(textoComoChar);
+
+  //! NÃO ESQUECER DE COLOCAR PARENTESES NO FIM DE TODAS AS FUNCÕES,
+  //! AFINAL SÃO FUNCÕES DE UMA CLASSE (String)
 }
