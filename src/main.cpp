@@ -125,7 +125,7 @@ void textoChar()
 
   if(posicaoLetra != NULL)
   {
-    Serial.print("Letra encontrada na posicao ");
+    Serial.print("Letra encontrada! ");
     Serial.println(posicaoLetra);
   }
   else
@@ -157,5 +157,45 @@ void textoString()
 
   //TODO Concatenando String
   mensagem = mensagem + "," + nome + "! Bem vindo ao curso de " + curso + ".";
+  Serial.println(mensagem);
+
+  
+
+  //TODO Tamanho da String
+  int tamanhoMensagem = mensagem.length();
+  Serial.print("Tamanho da String em letras: ");
+  Serial.println(tamanhoMensagem);
+
+
+
+  //TODO Acessando um caractere em uma posicão específica
+  char primeiraLetra = mensagem.charAt(0);
+  Serial.print("Primeira letra: ");
+  Serial.println(primeiraLetra);
+
+  //? Também é possível acessar com colchetes
+  char segundaLetra = mensagem[1];
+  Serial.print("Segunda letra: ");
+  Serial.println(segundaLetra);
+
+
+
+  //TODO Procurando um texto dentro da String
+  int posicaoTextoProcurado = mensagem.indexOf("curso");
+  Serial.print("A palavra comeca na posicao: ");
+  Serial.println(posicaoTextoProcurado);
+
+
+
+  //TODO Extraindo um texto dentro da String
+  int inicioNomeCurso = posicaoTextoProcurado + 9;  //?       1  2  3  4  5  6  7  8  9
+  //? Posicão da palavra "curso" + 9 caracteres, sendo esses (c, u, r, s, o,  , d, e,  )
+  Serial.println(mensagem.substring(inicioNomeCurso, tamanhoMensagem - 1)); 
+  //? -1 foi colocado para que o "." não fosse incluído junto do resto
+
+
+
+  //TODO Substituindo um texto dentro da String
+  mensagem.replace("Ola,", "Oi, tudo bom? ");
   Serial.println(mensagem);
 }
