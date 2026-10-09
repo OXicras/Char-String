@@ -17,6 +17,12 @@ void loop() {}
 
 void textoChar()
 {
+  //TODO  Laranja  = Título de cada bloco
+  //?     Azul     = Informacões extras
+  //*     Verde    = Explicacões
+  //!     Vermelho = Avisos e outros títulos
+
+
   //TODO Texto literal
   //* Use const char quando o texto não será alterado
   //* Use char* quando não souber a quantidade de espaco que seu texto gastará
@@ -30,11 +36,11 @@ void textoChar()
   //* Todo conjunto de caracteres termina com um '\0'
   //* '\0' = NULL
   //? strlen = string length
-  //? string = tipo de variável de texto
+  //? string = uma classe, às vezes confundido com tipo de variável
   //? length = comprimento
   int tamanhoTextoCidade = strlen(cidade);
   Serial.print("Comprimento do texto: ");
-  Serial.println(tamanhoTextoCidade); //* Comprimento do texto: 9
+  Serial.println(tamanhoTextoCidade); //? Comprimento do texto: 9
 
 
 
@@ -44,7 +50,7 @@ void textoChar()
   //* Esse espaco a mais é o '\0'
   int tamanhoVariavelCidade = sizeof(cidade);
   Serial.print("Espaco utilizado: ");
-  Serial.println(tamanhoVariavelCidade); //* Espaco utilizado: 10
+  Serial.println(tamanhoVariavelCidade); //? Espaco utilizado: 10
 
 
 
@@ -127,19 +133,29 @@ void textoChar()
 
 
 
-    //TODO Convertendo texto numérico para inteiro
-    char idadeTexto[] = "45"; 
-    //? 52 (posicão do número 4 na tabela ASCII), 
-    //? 53 (posicão do número 5 na tabela ASCII), 
-    //? '\0'
-    //* Então para converter para os números "corretos" faremos
-    int idade = atoi(idadeTexto);
-    //? atoi = ASCII to int
-    Serial.println(idade);
-
+  //TODO Convertendo texto numérico para inteiro
+  char idadeTexto[] = "45"; 
+  //? 52 (posicão do número 4 na tabela ASCII), 
+  //? 53 (posicão do número 5 na tabela ASCII), 
+  //? '\0'
+  //* Então para converter para os números "corretos" faremos
+  int idade = atoi(idadeTexto);
+  //? atoi = ASCII to int
+  Serial.println(idade);
 }
 
 void textoString()
 {
+  //!=============================
+  //!===     USANDO String     ===
+  //!=============================
 
+
+  String nome = "Bruno";
+  String curso = "Logica de programacao";
+  String mensagem = "Ola";
+
+  //TODO Concatenando String
+  mensagem = mensagem + "," + nome + "! Bem vindo ao curso de " + curso + ".";
+  Serial.println(mensagem);
 }
