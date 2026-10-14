@@ -148,6 +148,81 @@ void textoChar()
   int idade = atoi(idadeTexto);
   //? atoi = ASCII to int
   Serial.println(idade);
+
+
+
+  //TODO Montando Texto
+  char buffer[100];
+  char* local = "Sala de Aula";
+  float temperatura = 26.4;
+  int umidade = 58;
+
+  //* snprintf = Funcão para montar um texto em um vetor de char, com tamanho definido
+  //? snprintf: s = string | n = pra definir o tamanho e não haver vazamento de dados | ... printf
+  //* Síntaxe: snprintf(variavelOndeSeraMontadoOTexto, TamanhoMaximoDoTexto, TextoComFormatacão, ItensDeFormato);
+  //* Isso é muito útil quando depois voce quer:
+  /*
+   * - salvar o texto em uma variavel 
+   * - mandar para o display
+   * - imprimir na serial
+   * enviar por MQTT (IoT)
+   */
+
+
+  //! CUIDADO para não usar "sprintf"  
+  snprintf(buffer, sizeof(buffer), "%s | Temp.: %.1f | Umid.: %d %% \n\r", local, temperatura, umidade);
+  //?                               %s = string | %f = float | %d = int | %% = % (literalmente o símbolo)
+  //?                                                          %i = int
+
+  //? \n = troca de linha (enter) | \r = volta pra "posicão 0"
+  //? senão ele continuaria a escrever em outra linha, mas na mesma posicão
+  //* Esses comandos também funcionam para Serial.printf
+
+  //? O que eu quero que esse comando printe:  Sala de Aula | Temp.: 26.4 | Umid.: 58%
+  Serial.print(buffer);
+  Serial.printf("O tamanho do buffer é %lu \n\r", sizeof(buffer));
+
+  /*
+  TODO ESPECIFICADORES:
+
+  ? %d ou %i   - int
+  ? %u         - unsigned int
+  ? %ld        - long
+  ? %lu        - unsigned long
+  ? %f         - float
+  ? %e         - notacão científica
+  ? %g         - float, formato mais curto
+  ? %c         - char
+  ? %s         - char* (string)
+  ? %x ou %X   - hexadecimal minúsculo/maiúsculo
+  ? %o         - octal
+  ? %p         - ponteiro
+  ? %%         - o próprio "%"
+
+
+
+  TODO Flag, largura e precisão
+
+  * %5d        - imprime com largura mínima de 5, alinhado a direita [    3], [  100], [10000000]
+  * %-4d       - imprime com largura mínima de 4, alinhado a esquerda [3   ], [100 ], [123456]
+  * %03d       - completa com zeros a esquerda [003]
+  * %+d        - sempre mostra o sinal [+3], [-3]
+  * %.2f       - 2 casas decimais num float
+  * %4.2f      - largura mínima 4, a direita e com 2 casas decimais
+  * %02X       - hexadecima com 2 dígitos [0F], [3A]
+  * %#x        - imprime o prefixo "0x" [0x2a]
+  * %.3s       - somente os 3 primeiros caracteres da string
+  * %*d        - largura passada como argumento
+  * ex:
+  * int largura = 3
+  * int numero = 9
+  * snprintf(buffer, sizeof(buffer), "numero %*d", largura, numero)
+  * Serial.print(buffer)  ->  [  9]
+
+  ! Todos que possuem números são alteráveis, podem ser misturados e o número pode ser alterado por "*" podendo passar os parametros depois
+
+  ! SEMPRE ESCREVER OS PARAMETROS NA ORDEM QUE VOCE OS PASSA/PEDE
+  */
 }
 
 void textoString()
